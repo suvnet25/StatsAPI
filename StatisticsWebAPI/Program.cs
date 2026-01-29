@@ -1,3 +1,4 @@
+using AppDB;
 using Microsoft.EntityFrameworkCore;
 
 namespace StatisticsWebAPI
@@ -9,8 +10,8 @@ namespace StatisticsWebAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Lägg till den DbContext ni skapar för er databas här
-            // builder.Services.AddDbContext<ApiDbContext>(options =>
-            //    options.UseInMemoryDatabase("EventDb"));
+            builder.Services.AddDbContext<AppDbContext>(options =>
+               options.UseInMemoryDatabase("EventDb"));
 
             //Låt detta vara kvar! Utan denna inställning kommer inte websidan att få access till API:et.
             // Läs mer här: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS

@@ -8,6 +8,6 @@ public class AppDbContext : DbContext
     {
     }
 
-    // public DbSet<Event> Events => Set<Event>();
-    // public DbSet<RegisteredUser> RegisteredUsers => Set<RegisteredUser>();
+    public DbSet<UserStatistics> UserData => Set<UserStatistics>();
+    public DbSet<CityStatistics> CityData => Set<CityStatistics>();
 }
