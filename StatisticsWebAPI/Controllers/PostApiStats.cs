@@ -1,13 +1,21 @@
 using Microsoft.AspNetCore.Mvc;
+using AppDB;
 
 
 [ApiController]
 [Route("api/stats")]
-public class PostApiStats : ControllerBase
+public class PostApiStats(AppDbContext db) : ControllerBase
 {
     [HttpPost]
-    public IActionResult PostStats()
+    public async Task<ActionResult<Statistics>> SaveStats(Statistics stats)
     {
-        return Ok("Hello from SampleController!");
+        // POST /api/stats. 
+        // Tar emot JSON med vilken stad som söktes på samt vilket IP som gjorde requesten, 
+        // och sparar detta i en databas.
+
+        stats.IPAddress = HttpContext.Connection.RemoteIpAddress?.ToString();
+        db.Statistics.Add(stats);
+        await db.SaveChangesAsync();
+        return CreatedAtAction(nameof(SaveStats), new { id = stats.Id }, stats);
     }
 }
