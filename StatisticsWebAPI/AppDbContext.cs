@@ -8,6 +8,5 @@ public class AppDbContext : DbContext
     {
     }
 
-    public DbSet<UserStatistics> UserData => Set<UserStatistics>();
-    public DbSet<CityStatistics> CityData => Set<CityStatistics>();
+    public DbSet<Statistics> Data => Set<Statistics>();
 }
