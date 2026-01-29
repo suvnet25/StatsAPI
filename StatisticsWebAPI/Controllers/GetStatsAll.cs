@@ -1,13 +1,14 @@
+using AppDB;
 using Microsoft.AspNetCore.Mvc;
 
 
 [ApiController]
 [Route("api/stats")]
-public class GetStatsAll : ControllerBase
+public class GetStatsAll(AppDbContext _db) : ControllerBase
 {
     [HttpGet("All-city-searches")]
-    public IActionResult GetTopStats()
+    public List<Statistics> GetTopStats()
     {
-        return Ok("Hello from SampleController!");
+        return _db.Statistics.ToList();
     }
 }
