@@ -8,5 +8,5 @@ public class AppDbContext : DbContext
     {
     }
 
-    public DbSet<Statistics> Data => Set<Statistics>();
+    public DbSet<Statistics> Statistics => Set<Statistics>();
 }

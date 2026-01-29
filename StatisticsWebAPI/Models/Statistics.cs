@@ -1,7 +1,10 @@
-public class Statistics()
+public class Statistics
 {
-    int ID { get; set; }
-    string IPAddress { get; set; }
-    string Name { get; set; }
-    DateTime dateSearched { get; set; } = DateTime.Now;
+    public int Id { get; set; }
+
+    public string IPAddress { get; set; } = string.Empty;
+
+    public string Name { get; set; } = string.Empty;
+
+    public DateTime DateSearched { get; set; } = DateTime.UtcNow;
 }
