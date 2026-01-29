@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using eventAPI.Models;
 namespace AppDB;
 
 public class AppDbContext : DbContext
