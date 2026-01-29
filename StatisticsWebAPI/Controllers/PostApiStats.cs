@@ -14,8 +14,8 @@ public class PostApiStats(AppDbContext _db) : ControllerBase
         // och sparar detta i en databas.
 
         stats.IPAddress = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "UnknownIP";
-        db.Statistics.Add(stats);
-        await db.SaveChangesAsync();
+        _db.Statistics.Add(stats);
+        await _db.SaveChangesAsync();
         return CreatedAtAction(nameof(PostStatistics), new { id = stats.Id }, stats);
     }
 }
