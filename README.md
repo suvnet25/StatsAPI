@@ -4,8 +4,9 @@ POST /api/stats. Tar emot JSON med vilken stad som söktes på samt vilket IP so
 
 Req: Lägg till exempel på Json-data
 
+Post
+
 {
-  "Id": "",
   "Name": ""
 }
 
