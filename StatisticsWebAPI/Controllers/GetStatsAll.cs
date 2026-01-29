@@ -1,5 +1,5 @@
-using AppDB;
 using Microsoft.AspNetCore.Mvc;
+using AppDB;
 
 
 [ApiController]
@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 public class GetStatsAll(AppDbContext _db) : ControllerBase
 {
     [HttpGet]
-    public List<Statistics> GetTopStats()
+    public async Task<ActionResult> GetTopStats()
     {
-        return _db.Statistics.ToList();
+        if (_db.Statistics.ToList() == null) return NotFound();
+        return Ok(_db.Statistics.ToList());
     }
 }

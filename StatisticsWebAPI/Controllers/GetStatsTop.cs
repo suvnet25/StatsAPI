@@ -1,14 +1,26 @@
 using AppDB;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 [ApiController]
 [Route("api/stats/top")]
 public class GetStatsTop(AppDbContext _db) : ControllerBase
 {
-    [HttpGet("top-10-city-searches")]
-       public List<Statistics> GetTopStats()
+    [HttpGet]
+    public async Task<ActionResult> GetTopFiveCities()
     {
-        return _db.Statistics.ToList();
+        var topCities = await _db.Statistics
+            .GroupBy(s => s.Name)
+            .Select(group => new
+            {
+                City = group.Key,
+                SearchCount = group.Count()
+            })
+            .OrderByDescending(x => x.SearchCount)
+            .Take(5)
+            .ToListAsync();
+        if (topCities == null) return NotFound();
+        return Ok(topCities);
     }
 }
