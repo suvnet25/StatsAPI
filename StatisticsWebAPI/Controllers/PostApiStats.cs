@@ -10,7 +10,8 @@ public class PostApiStats(AppDbContext _db) : ControllerBase
     public async Task<ActionResult<Statistics>> PostStatistics(Statistics stats)
     {
         // POST /api/stats. 
-        // Tar emot JSON med vilken stad som söktes på samt vilket IP som gjorde requesten, 
+        // Tar emot JSON med vilken stad som söktes på samt,
+        // vilket IP som gjorde requesten, 
         // och sparar detta i en databas.
 
         stats.IPAddress = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "UnknownIP";

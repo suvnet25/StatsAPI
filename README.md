@@ -6,9 +6,7 @@ Req: Lägg till exempel på Json-data
 
 {
   "Id": "",
-  "IPAddress": "",
-  "Name": "",
-  "DateSearched": ""
+  "Name": ""
 }
 
 Id sätts automatiskt, IPAddress tas in via HTTPContext, Name är det vi söker på & DateSearched är dagens datum.

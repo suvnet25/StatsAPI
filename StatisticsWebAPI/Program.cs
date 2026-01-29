@@ -11,7 +11,7 @@ namespace StatisticsWebAPI
 
             // Lägg till den DbContext ni skapar för er databas här
             builder.Services.AddDbContext<AppDbContext>(options =>
-               options.UseInMemoryDatabase("EventDb"));
+               options.UseSqlite(""));
 
             //Låt detta vara kvar! Utan denna inställning kommer inte websidan att få access till API:et.
             // Läs mer här: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS
