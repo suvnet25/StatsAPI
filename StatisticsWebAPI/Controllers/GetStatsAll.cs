@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 [Route("api/stats/all")]
 public class GetStatsAll(AppDbContext _db) : ControllerBase
 {
-    [HttpGet("all-city-searches")]
+    [HttpGet]
     public List<Statistics> GetTopStats()
     {
         return _db.Statistics.ToList();
