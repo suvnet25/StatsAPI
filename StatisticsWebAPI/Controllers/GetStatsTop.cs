@@ -20,7 +20,7 @@ public class GetStatsTop(AppDbContext _db) : ControllerBase
             .OrderByDescending(x => x.SearchCount)
             .Take(5)
             .ToListAsync();
-
+        if (topCities == null) return NotFound();
         return Ok(topCities);
     }
 }
