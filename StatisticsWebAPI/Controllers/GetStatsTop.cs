@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Mvc;
 
 
 [ApiController]
-[Route("api/stats")]
+[Route("api/stats/top")]
 public class GetStatsTop : ControllerBase
 {
-    [HttpPost]
+    [HttpGet]
     public IActionResult GetTopStats()
     {
         return Ok("Hello from SampleController!");

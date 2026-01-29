@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 
 [ApiController]
-[Route("api/stats")]
+[Route("api/stats/all")]
 public class GetStatsAll(AppDbContext _db) : ControllerBase
 {
     [HttpGet("All-city-searches")]
