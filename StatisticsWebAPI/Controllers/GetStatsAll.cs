@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 [Route("api/stats")]
 public class GetStatsAll : ControllerBase
 {
-    [HttpPost]
+    [HttpGet]
     public IActionResult GetTopStats()
     {
         return Ok("Hello from SampleController!");
