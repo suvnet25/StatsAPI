@@ -4,18 +4,18 @@ using AppDB;
 
 [ApiController]
 [Route("api/stats")]
-public class PostApiStats(AppDbContext db) : ControllerBase
+public class PostApiStats(AppDbContext _db) : ControllerBase
 {
     [HttpPost]
-    public async Task<ActionResult<Statistics>> SaveStats(Statistics stats)
+    public async Task<ActionResult<Statistics>> PostStatistics(Statistics stats)
     {
         // POST /api/stats. 
         // Tar emot JSON med vilken stad som söktes på samt vilket IP som gjorde requesten, 
         // och sparar detta i en databas.
 
-        stats.IPAddress = HttpContext.Connection.RemoteIpAddress?.ToString();
+        stats.IPAddress = HttpContext.Connection.RemoteIpAddress?.ToString() ?? "UnknownIP";
         db.Statistics.Add(stats);
         await db.SaveChangesAsync();
-        return CreatedAtAction(nameof(SaveStats), new { id = stats.Id }, stats);
+        return CreatedAtAction(nameof(PostStatistics), new { id = stats.Id }, stats);
     }
 }
