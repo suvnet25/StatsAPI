@@ -1,12 +1,12 @@
-using StatisticsWebAPI;
+// using StatisticsWebAPI;
 
-namespace StatsAPIExercise
-{
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
-    }
-}
+// namespace StatsAPIExercise
+// {
+//     internal class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             Console.WriteLine("Hello World!");
+//         }
+//     }
+// }
