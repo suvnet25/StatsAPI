@@ -9,9 +9,10 @@ namespace StatisticsWebAPI
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Lägg till den DbContext ni skapar för er databas här
             builder.Services.AddDbContext<AppDbContext>(options =>
-               options.UseSqlite(""));
+                options.UseSqlite("Data Source=servers.db"));
+
+            builder.Services.AddControllers();
 
             //Låt detta vara kvar! Utan denna inställning kommer inte websidan att få access till API:et.
             // Läs mer här: https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS
@@ -26,6 +27,10 @@ namespace StatisticsWebAPI
         });
 
             var app = builder.Build();
+            using var scope = app.Services.CreateScope();
+
+            var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            db.Database.EnsureCreated();
 
             // Denna hör ihop med CORS-inställningen ovan
             app.UseCors();
