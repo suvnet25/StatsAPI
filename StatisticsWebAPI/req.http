@@ -9,7 +9,6 @@ GET http://localhost:5159/api/stats/top
 POST http://localhost:5159/api/stats
 Content-Type: application/json
 
-
 {
   "Name": "Göteborg"
 }

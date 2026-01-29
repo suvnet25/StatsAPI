@@ -11,7 +11,7 @@ public class GetStatsTop(AppDbContext _db) : ControllerBase
     public async Task<ActionResult> GetTopFiveCities()
     {
         var topCities = await _db.Statistics
-            .GroupBy(s => s.Name)
+            .GroupBy(s => s.Name.ToLower())
             .Select(group => new
             {
                 City = group.Key,
